@@ -1,0 +1,1 @@
+docker exec -it docker-gitlab-runner-1 bash
