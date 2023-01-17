@@ -1,8 +1,12 @@
 version: '3.5'
 services:
-  gitlab:
-    image: gitlab/gitlab-ce:latest
+
+  gitlab-server:
+    build:
+      context: ./gitlab-server/
+      dockerfile: dockerfile
     hostname: gitlab-server
+    container_name: gitlab-server
     restart: unless-stopped
     environment:
       GITLAB_OMNIBUS_CONFIG: |
@@ -14,22 +18,25 @@ services:
       - ./gitlab-data/etc/gitlab:/etc/gitlab
       - ./gitlab-data/var/opt/gitlab:/var/opt/gitlab
       - ./gitlab-data/var/log/gitlab:/var/log/gitlab
-    networks:
-      - gitlab_net
+    # networks:
+    #   - gitlab_net
 
   gitlab-runner:
     build:
-      context: .
-      dockerfile: Dockerfile-gitlab-runner
-    hostname: gitlab-runner-server
-    restart: unless-stopped
-    depends_on:
-      - gitlab
+      context: ./gitlab-runner/
+      dockerfile: dockerfile
+    hostname: gitlab-runner
+    container_name: gitlab-runne
+    tty: true
+    stdin_open: true
+    # restart: unless-stopped
+    # depends_on:
+    #   -  gitlab-server
     volumes:
       - ./gitlab-data/etc/gitlab-runner:/etc/gitlab-runner
       - ./gitlab-data/var/run/docker.sock:/var/run/docker.sock
-    networks:
-      - gitlab_net
+    # networks:
+    #   - gitlab_net
 
-networks:
-  gitlab_net:
+# networks:
+#   gitlab_net:

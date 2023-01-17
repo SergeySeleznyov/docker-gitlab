@@ -1,4 +1,3 @@
-pushd gitlab
-docker-compose up -d && docker-compose ps
-popd
+docker-compose up -d
+rem && docker-compose ps
 pause

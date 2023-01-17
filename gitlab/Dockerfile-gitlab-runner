@@ -1,2 +1,0 @@
-FROM gitlab/gitlab-runner:alpine
-RUN apk add mc nodejs npm
