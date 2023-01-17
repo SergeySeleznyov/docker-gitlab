@@ -11,5 +11,5 @@ set Sec=%DateTime:~12,2%
 
 set BackupName=%Yr%-%Mon%-%Day%_(%Hr%-%Min%-%Sec%)
 
-xcopy gitlab gitlab.%BackupName% /E/H/C/I
+xcopy gitlab-data gitlab-data.%BackupName% /E/H/C/I
 pause

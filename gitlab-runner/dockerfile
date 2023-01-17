@@ -1,0 +1,8 @@
+FROM localhost:8082/node:18-bullseye-slim
+#FROM localhost:8082/ubunut:22.04
+#FROM gitlab/gitlab-runner:alpine
+
+RUN apt update && \
+	apt install -y mc vim curl wget tmux htop
+
+ENTRYPOINT [ "htop" ]
