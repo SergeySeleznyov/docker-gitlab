@@ -26,7 +26,7 @@ services:
       context: ./gitlab-runner/
       dockerfile: dockerfile
     hostname: gitlab-runner
-    container_name: gitlab-runne
+    container_name: gitlab-runner
     tty: true
     stdin_open: true
     # restart: unless-stopped

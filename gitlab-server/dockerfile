@@ -1,2 +1,2 @@
-FROM localhost:8082/gitlab/gitlab-ce
-#FROM localhost:8082/gitlab/gitlab-ce:15.7.3-ce.0
+FROM localhost:8082/gitlab/gitlab-ce:15.7.5-ce.0
+#FROM localhost:8082/gitlab/gitlab-ce
