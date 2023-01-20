@@ -1,2 +1,2 @@
-docker exec -it gitlab-runner-2 bash
+docker exec -it gitlab-runner bash
 pause

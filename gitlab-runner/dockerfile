@@ -12,3 +12,4 @@ RUN curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runn
 RUN apt-cache madison gitlab-runner
 RUN apt install -y gitlab-runner=15.7.2
 
+CMD ["gitlab-runner", "run"]

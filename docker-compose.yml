@@ -5,8 +5,9 @@ services:
     build:
       context: ./gitlab-server/
       dockerfile: dockerfile
-    hostname: gitlab-server
+    image: gitlab-server
     container_name: gitlab-server
+    hostname: gitlab-server
     restart: unless-stopped
     environment:
       GITLAB_OMNIBUS_CONFIG: |
@@ -25,8 +26,9 @@ services:
     build:
       context: ./gitlab-runner/
       dockerfile: dockerfile
-    hostname: gitlab-runner
+    image: gitlab-runner
     container_name: gitlab-runner
+    hostname: gitlab-runner
     tty: true
     stdin_open: true
     # restart: unless-stopped
