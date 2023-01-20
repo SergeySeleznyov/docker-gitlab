@@ -1,1 +1,0 @@
-docker exec -it docker-gitlab-1 bash
