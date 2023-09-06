@@ -5,20 +5,22 @@ services:
     build:
       context: ./gitlab-server/
       dockerfile: dockerfile
-    image: gitlab-server
+    # image: localhost:8082/gitlab-server
     container_name: gitlab-server
     hostname: gitlab-server
-    restart: unless-stopped
+    #restart: unless-stopped
     environment:
       GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://gitlab-server:8000'
         gitlab_rails['gitlab_shell_ssh_port'] = 8822
     ports:
-      - "8000:80"
+      - "8000:8000"
       - "8822:22"
     volumes:
       - ./gitlab-data/etc/gitlab:/etc/gitlab
       - ./gitlab-data/var/opt/gitlab:/var/opt/gitlab
       - ./gitlab-data/var/log/gitlab:/var/log/gitlab
+    shm_size: '256m'
     # networks:
     #   - gitlab_net
 
@@ -26,7 +28,7 @@ services:
     build:
       context: ./gitlab-runner/
       dockerfile: dockerfile
-    image: gitlab-runner
+    # image: localhost:8082/gitlab-runner
     container_name: gitlab-runner
     hostname: gitlab-runner
     tty: true
